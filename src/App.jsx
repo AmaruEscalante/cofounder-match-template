@@ -94,17 +94,6 @@ function App() {
     setDragStart(null);
   };
 
-  // Intentional error for Sentry testing - parse initial guest data
-  const parseGuestList = () => {
-    // This will cause an error on app launch
-    const undefinedObject = undefined;
-    // Trying to access property on undefined - this will crash the app!
-    return undefinedObject.profiles.list;
-  };
-  
-  // This will throw error immediately on render
-  parseGuestList();
-
   const currentGuest = GUESTS[currentIndex];
   const rotation = dragOffset.x / 20;
   const opacity = 1 - Math.abs(dragOffset.x) / 300;
